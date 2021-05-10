@@ -1,13 +1,15 @@
 from flask import Flask, url_for, render_template
 from markupsafe import escape
 from flask import request
+from picamera import PiCamera
+from time import sleep
 
 app = Flask(__name__)
+camera = PiCamera()
 
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/livefeed')
 def livefeed():
@@ -16,6 +18,8 @@ def livefeed():
 @app.route('/statistics')
 def statistics():
     return render_template('statistics.html')
+
+#-------------------------------------------------------------
 
 @app.route('/user/<username>')
 def show_user_profile(username):

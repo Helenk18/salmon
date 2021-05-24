@@ -3,21 +3,22 @@ from markupsafe import escape
 from flask import request
 from picamera import PiCamera
 from time import sleep
+from rpi_camera import picamera
 
 app = Flask(__name__)
 camera = PiCamera()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return 'rpi_camera.py'
 
-@app.route('/livefeed')
-def livefeed():
-    return render_template('livefeed.html')
+#@app.route('/livefeed')
+#def livefeed():
+#    return render_template('livefeed.html')
 
-@app.route('/statistics')
-def statistics():
-    return render_template('statistics.html')
+#@app.route('/statistics')
+#def statistics():
+#    return render_template('statistics.html')
 
 #-------------------------------------------------------------
 

@@ -1,55 +1,28 @@
-from flask import Flask, url_for, render_template
+from flask import Flask, url_for, render_template # To access .html templates 
 from markupsafe import escape
-from flask import request
-from picamera import PiCamera
+from flask import request # To utilize HTML method for accessing URL
 from time import sleep
-from rpi_camera import picamera
 
-app = Flask(__name__)
-camera = PiCamera()
+app = Flask(__name__) # Start of application
 
-@app.route('/')
+@app.route('/') # Home page
 def index():
-    return 'rpi_camera.py'
+    return 'index.html'
 
-@app.route('/livefeed')
+@app.route('/livefeed') # Routing to Livefeed window
 def livefeed():
     return render_template('livefeed.html')
 
-@app.route('/statistics')
+@app.route('/statistics') # Routing to Statistics window
 def statistics():
     return render_template('statistics.html')
 
-#-------------------------------------------------------------
-
-@app.route('/user/<username>')
-def show_user_profile(username):
-    return 'User %s' % escape(username)
-
-@app.route('/post/<int:post_id>')
-def show_post(post_id):
-    return 'Post %d' % post_id
-
-@app.route('/path/<path:subpath>')
-def show_subpath(subpath):
-    return 'Subpath %s' % escape(subpath)
-
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])  # HTML method for accessing URL
 def login():
     if request.method == 'POST':
         return do_the_login()
     else:
         return show_the_login_form()
 
-@app.route('/user/<username>')
-def profile(username):
-    return '{}\'s profile' .format(escape(username))
-
-with app.test_request_context():
-    print(url_for('index'))
-    print(url_for('login'))
-    print(url_for('login', next='/'))
-    print(url_for('profile', username='Helena'))
-
-if __name__ == '__main__':
+if __name__ == '__main__':          # End of application
     app.run(debug=True, host='0.0.0.0')

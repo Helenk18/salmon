@@ -12,13 +12,13 @@ camera = PiCamera()
 def index():
     return 'rpi_camera.py'
 
-#@app.route('/livefeed')
-#def livefeed():
-#    return render_template('livefeed.html')
+@app.route('/livefeed')
+def livefeed():
+    return render_template('livefeed.html')
 
-#@app.route('/statistics')
-#def statistics():
-#    return render_template('statistics.html')
+@app.route('/statistics')
+def statistics():
+    return render_template('statistics.html')
 
 #-------------------------------------------------------------
 

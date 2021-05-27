@@ -10,11 +10,11 @@ from http import server
 PAGE="""\
 <html>
 <head>
-        # Title index removed from original source code
+       <title>Module Live Feed</title> # Title heading changed from original source code --> "picamera MJPEG streaming demo"
 </head>
 <body>
-<center><h1>Module Live Feed</h1></center>      # text entry changed from original source code --> "Raspberry Pi - Surveillance Camera"
-<center><img src="stream.mjpg" width="640" height="480"></center>
+<center><h1>Module Live Feed</h1></center>      # h1 entry changed from original source code --> "picamera MJPEG streaming demo"
+<center><img src="stream.mjpg" width="640" height="480"></center> # Center command added, changed from source code
 </body>
 </html>
 """

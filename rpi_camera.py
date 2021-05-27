@@ -1,3 +1,5 @@
+#Copyright 2013-2015 Dave Jones
+
 import io
 import picamera
 import logging
@@ -8,10 +10,10 @@ from http import server
 PAGE="""\
 <html>
 <head>
-<title>Raspberry Pi - Surveillance Camera</title>
+        # Title index removed from original source code
 </head>
 <body>
-<center><h1>Raspberry Pi - Surveillance Camera</h1></center>
+<center><h1>Module Live Feed</h1></center>      # text entry changed from original source code --> "Raspberry Pi - Surveillance Camera"
 <center><img src="stream.mjpg" width="640" height="480"></center>
 </body>
 </html>
